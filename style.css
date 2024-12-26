@@ -13,7 +13,7 @@ h1 {
 p {
     text-align: center;
     margin: -45px 0 0 0;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 h2 {
@@ -56,8 +56,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type=number] {
-    -moz-appearance: textfield; 
+    -moz-appearance: textfield;
 }
 
 #baseInput {
@@ -68,15 +69,18 @@ input[type=number] {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    width: 240px;
 }
+
 #heightInput {
-    margin: 0 0 0 1px;
+    margin: 0 0 0 25px;
     font-size: 25px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    width: 240px;
 }
 
 .resultContainerTriangle {
@@ -91,6 +95,7 @@ input[type=number] {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    width: 260px;
 }
 
 .white {

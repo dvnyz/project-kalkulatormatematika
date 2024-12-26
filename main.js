@@ -25,7 +25,7 @@ function sumAreaOfCircle() {
             return
         }
         const areaOfCircle = Math.PI * Math.pow(radius, 2)
-        
+
         const resultContainerCircle = document.getElementById("resultContainerCircle")
         resultContainerCircle.innerHTML = `Jumlah Luas Lingkaran Adalah : ${areaOfCircle.toFixed(2)}`
         resultContainerCircle.className = "resultContainerCircle"
@@ -44,6 +44,7 @@ function sumAreaOfTriangle() {
         inputNewToTriangle.id = inputCurrent === 0 ? "baseInput" : "heightInput"
 
         containerOfTriangle.appendChild(inputNewToTriangle)
+        containerOfTriangle.appendChild(document.createElement("br"))
         containerOfTriangle.className = "TriangleContainer"
 
         inputCurrent++
@@ -55,7 +56,7 @@ function sumAreaOfTriangle() {
             return
         }
         const areaOfTriangle = (base * height) / 2
-        
+
         const resultContainerTriangle = document.getElementById("resultContainerTriangle")
         resultContainerTriangle.innerHTML = `Jumlah Luas Segitiga Adalah : ${areaOfTriangle.toFixed(2)}`
         resultContainerTriangle.className = "resultContainerTriangle"
