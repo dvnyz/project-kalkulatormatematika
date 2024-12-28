@@ -37,7 +37,6 @@ button {
 }
 
 .circleContainer {
-    margin: 0 0 0 25px;
     font-size: 25px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -55,10 +54,6 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
 }
 
 #baseInput {
@@ -89,13 +84,14 @@ input[type=number] {
 }
 
 #radiusInput {
+    margin: 0 0 0 25px;
     font-size: 25px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    width: 260px;
+    width: 240px;
 }
 
 .white {
@@ -104,4 +100,31 @@ input[type=number] {
 
 .red {
     color: red;
+}
+
+.resultContainerRectangle {
+    margin: 0 0 0 25px;
+    font-size: 25px;
+}
+
+#lengthInput {
+    margin: 0 0 0 25px;
+    font-size: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: 240px;
+}
+
+#widthInput {
+    margin: 0 0 0 25px;
+    font-size: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: 240px;
 }
