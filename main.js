@@ -27,7 +27,7 @@ function sumAreaOfCircle() {
         const areaOfCircle = Math.PI * Math.pow(radius, 2)
 
         const resultContainerCircle = document.getElementById("resultContainerCircle")
-        resultContainerCircle.innerHTML = `Luas Lingkaran Adalah : ${areaOfCircle.toFixed(2)}`
+        resultContainerCircle.innerHTML = `Luasnya Adalah : ${areaOfCircle.toFixed(2)}`
         resultContainerCircle.className = "resultContainerCircle"
     }
 }
@@ -58,7 +58,7 @@ function sumAreaOfTriangle() {
         const areaOfTriangle = (base * height) / 2
 
         const resultContainerTriangle = document.getElementById("resultContainerTriangle")
-        resultContainerTriangle.innerHTML = `Luas Segitiga Adalah : ${areaOfTriangle.toFixed(2)}`
+        resultContainerTriangle.innerHTML = `Luasnya Adalah : ${areaOfTriangle.toFixed(2)}`
         resultContainerTriangle.className = "resultContainerTriangle"
     }
 }
@@ -90,7 +90,7 @@ function sumAreaOfRectangle() {
         const AreaOfRectangle = length * width
 
         const resultContainerRectangle = document.getElementById("resultContainerRectangle")
-        resultContainerRectangle.innerHTML = `Luas Persegi Panjang Adalah : ${AreaOfRectangle.toFixed(2)}`
+        resultContainerRectangle.innerHTML = `Luasnya Adalah : ${AreaOfRectangle.toFixed(2)}`
         resultContainerRectangle.className = "resultContainerRectangle"
     }
 }
