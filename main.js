@@ -94,3 +94,35 @@ function sumAreaOfRectangle() {
         resultContainerRectangle.className = "resultContainerRectangle"
     }
 }
+
+const maxInputP = 2
+let currentInputP = 0
+
+function sumAreaOfParallelogram() {
+    const containerOfParallelogram = document.getElementById("inputContainerParallelogram")
+    if (currentInputP < maxInputP) {
+        const inputNewToParallelogram = document.createElement('input')
+        inputNewToParallelogram.type = "number"
+        inputNewToParallelogram.placeholder = currentInputP === 0 ? "Masukkan Alas" : "Masukkan Tinggi"
+        inputNewToParallelogram.id = currentInputP === 0 ? "basepInput" : "highpInput"
+
+        containerOfParallelogram.appendChild(inputNewToParallelogram)
+        containerOfParallelogram.appendChild(document.createElement("br"))
+        containerOfParallelogram.className = "parallelogramContainer"
+
+        currentInputP++
+    }
+    else {
+        const basep = parseFloat(document.getElementById("basepInput").value)
+        const highp = parseFloat(document.getElementById("highpInput").value)
+        if (isNaN(basep) || basep <= 0 || isNaN(highp) || highp <= 0) {
+            alert('Masukkan Alas Dan Tinggi Yang Valid.')
+            return
+        }
+        const AreaOfParallelogram = basep * highp
+
+        const resultContainerParallelogram = document.getElementById("resultContainerParallelogram")
+        resultContainerParallelogram.innerHTML = `Luasnya Adalah : ${AreaOfParallelogram.toFixed(2)}`
+        resultContainerParallelogram.className = "resultContainerParallelogram"
+    }
+}
