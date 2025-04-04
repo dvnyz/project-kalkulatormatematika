@@ -12,7 +12,6 @@ h1 {
 
 p {
     text-align: center;
-    margin: -45px 0 0 0;
     font-size: 20px;
 }
 
@@ -94,11 +93,11 @@ input::-webkit-inner-spin-button {
     width: 240px;
 }
 
-.white {
+.calculator {
     color: white;
 }
 
-.red {
+.math {
     color: red;
 }
 
@@ -154,4 +153,19 @@ input::-webkit-inner-spin-button {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     width: 240px;
+}
+
+.name {
+    font-size: 25px;
+    border: rgb(150, 0, 0);
+    border-style: solid;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    width: auto;
+    max-width: 35%;
+    padding: 10px;
+    margin: -20px auto;
 }

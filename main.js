@@ -24,12 +24,23 @@ function sumAreaOfCircle() {
             alert('Masukkan Jari Jari Yang Valid.')
             return
         }
-        const areaOfCircle = Math.PI * Math.pow(radius, 2)
 
-        const resultContainerCircle = document.getElementById("resultContainerCircle")
-        resultContainerCircle.innerHTML = `Luasnya Adalah : ${areaOfCircle.toFixed(2)}`
-        resultContainerCircle.className = "resultContainerCircle"
-    }
+        else {
+            if (radius % 7 == 0 ) {
+                let areaOfCircle = 22 / 7 * Math.pow(radius, 2)
+    
+                const resultContainerCircle = document.getElementById("resultContainerCircle")
+                resultContainerCircle.innerHTML = `Luasnya Adalah : ${areaOfCircle.toFixed(2)}`
+                resultContainerCircle.className = "resultContainerCircle"
+            }
+            else if (radius % 7 != 0) {
+                areaOfCircle = 3,14 * Math.pow(radius, 2)
+        
+                const resultContainerCircle = document.getElementById("resultContainerCircle")
+                resultContainerCircle.innerHTML = `Luasnya Adalah : ${areaOfCircle.toFixed(2)}`
+                resultContainerCircle.className = "resultContainerCircle"
+            }
+        }
 }
 
 const inputMax = 2
@@ -124,5 +135,6 @@ function sumAreaOfParallelogram() {
         const resultContainerParallelogram = document.getElementById("resultContainerParallelogram")
         resultContainerParallelogram.innerHTML = `Luasnya Adalah : ${AreaOfParallelogram.toFixed(2)}`
         resultContainerParallelogram.className = "resultContainerParallelogram"
+        }
     }
 }
