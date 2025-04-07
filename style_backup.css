@@ -1,0 +1,262 @@
+ :root {
+  --primary: #4361ee;
+  --secondary: #3f37c9;
+  --accent: #4895ef;
+  --dark: #1b263b;
+  --light: #f8f9fa;
+  --success: #4cc9f0;
+  --danger: #f72585;
+  --warning: #f8961e;
+  --info: #560bad;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.15) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 20%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+  color: var(--light);
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(to right, var(--accent), var(--success));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.creator {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calculator-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
+}
+
+/* Modern card hover effect */
+.calculator-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.calculator-card:hover::before {
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: rotate(30deg) translateX(-100%); }
+  100% { transform: rotate(30deg) translateX(100%); }
+}
+
+.calculator-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.calculator-card h2 i {
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(72, 149, 239, 0.2);
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.calculator-card:hover h2 i {
+  transform: rotate(10deg);
+  background: rgba(72, 149, 239, 0.3);
+}
+ 
+/* Standardized icon colors */
+.calculator-card h2 i {
+  color: #4895ef;
+}
+
+/* Rectangle icon specific styling */
+.calculator-card:nth-child(3) h2 i {
+  transform: scaleX(1.5) scaleY(0.8);
+  -webkit-transform: scaleX(1.5) scaleY(0.8);
+  -moz-transform: scaleX(1.5) scaleY(0.8);
+  -ms-transform: scaleX(1.5) scaleY(0.8);
+  -o-transform: scaleX(1.5) scaleY(0.8);
+  background: rgba(72, 149, 239, 0.3);
+  border-radius: 4px;
+}
+
+.calculator-card:nth-child(3):hover h2 i {
+  transform: scaleX(1.5) scaleY(0.8) rotate(10deg);
+  -webkit-transform: scaleX(1.5) scaleY(0.8) rotate(10deg);
+  -moz-transform: scaleX(1.5) scaleY(0.8) rotate(10deg);
+  -ms-transform: scaleX(1.5) scaleY(0.8) rotate(10deg);
+  -o-transform: scaleX(1.5) scaleY(0.8) rotate(10deg);
+  background: rgba(72, 149, 239, 0.4);
+}
+
+/* Custom parallelogram icon */
+.parallelogram-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #4895ef;
+  transform: skew(-20deg);
+  margin-right: 10px;
+  position: relative;
+  top: 5px;
+  transition: all 0.3s ease;
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+}
+
+.calculator-card:hover .parallelogram-icon {
+  transform: skew(-20deg) scale(1.1);
+  background: #4895ef;
+}
+
+.calculator-card button {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  font-weight: 600;
+}
+
+.calculator-card button:hover {
+  background: linear-gradient(to right, var(--secondary), var(--primary));
+  transform: translateY(-2px);
+}
+
+.input-container {
+  margin-top: 1rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  transition: all 0.3s ease;
+}
+
+.input-container input:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Remove number input arrows */
+.input-container input::-webkit-outer-spin-button,
+.input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+}
+
+.result-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(67, 97, 238, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+}

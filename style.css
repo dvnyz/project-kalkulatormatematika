@@ -1,171 +1,245 @@
+:root {
+  --primary: #4361ee;
+  --secondary: #3a0ca3;
+  --accent: #4895ef;
+  --dark: #1b263b;
+  --light: #f8f9fa;
+  --success: #4cc9f0;
+  --danger: #f72585;
+  --warning: #f8961e;
+  --info: #560bad;
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 body {
-    padding: 1%;
-    background-color: #222222;
-    color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.15) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 20%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+  color: var(--light);
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 h1 {
-    text-align: center;
-    font-size: 60px;
+  font-size: 3rem;
+  background: linear-gradient(to right, var(--accent), var(--success));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-p {
-    text-align: center;
-    font-size: 20px;
+.creator {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 50px;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  background: rgba(72, 149, 239, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-h2 {
-    text-align: left;
-    margin: 50px 0 0 25px;
-    font-size: 40px;
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-button {
-    text-align: left;
-    margin: 5px 0 0 25px;
-    font-size: 25px;
-    color: black;
-    background-color: white;
-    border: solid;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+.calculator-card {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px var(--glass-border);
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
 }
 
-.circleContainer {
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+.calculator-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
 }
 
-.resultContainerCircle {
-    margin: 0 0 0 25px;
-    font-size: 25px;
+.calculator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.shape-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  background: rgba(72, 149, 239, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#baseInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.shape-icon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.8;
 }
 
-#heightInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.circle::before {
+  border-radius: 50%;
+  width: 70%;
+  height: 70%;
 }
 
-.resultContainerTriangle {
-    margin: 0 0 0 25px;
-    font-size: 25px;
+.triangle::before {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid var(--accent);
+  background: transparent;
 }
 
-#radiusInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.rectangle::before {
+  width: 80%;
+  height: 50%;
 }
 
-.calculator {
-    color: white;
+.parallelogram::before {
+  width: 80%;
+  height: 50%;
+  transform: skew(-20deg);
 }
 
-.math {
-    color: red;
+.calculator-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+  font-weight: 600;
 }
 
-.resultContainerRectangle {
-    margin: 0 0 0 25px;
-    font-size: 25px;
+/* Button icon styles */
+button i {
+  margin-right: 8px;
 }
 
-#lengthInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.button-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: white;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") no-repeat center;
+  margin-right: 8px;
 }
 
-#widthInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.calculator-card button {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.resultContainerParallelogram {
-    margin: 0 0 0 25px;
-    font-size: 25px;
+.calculator-card button:hover {
+  background: linear-gradient(to right, var(--secondary), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
 }
 
-#basepInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.input-container {
+  margin-top: 1.5rem;
 }
 
-#highpInput {
-    margin: 0 0 0 25px;
-    font-size: 25px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    width: 240px;
+.input-container input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
 }
 
-.name {
-    font-size: 25px;
-    border: rgb(150, 0, 0);
-    border-style: solid;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-    width: auto;
-    max-width: 35%;
-    padding: 10px;
-    margin: -20px auto;
+.input-container input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+}
+
+.result-container {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  background: rgba(67, 97, 238, 0.15);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
 }
